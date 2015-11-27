@@ -16,7 +16,7 @@ class ParseTweet(Bolt):
 
         # words of no interests - will not count
         # we also don't count words with 1 or 2 characters
-        no_count = 'for you the are this have not but that your get from and just they who can what about out any when now all was don\'t i\'m how she could with'.split()
+        no_count = 'for you the are this have not but that your get from and just they who can what about out any when now all was don\'t i\'m how she could with it\'s you\'re can\'t'.split()
 
         # get rid numbers
         tweet = re.sub(r'\w*\d\w*', '', tweet).strip()
@@ -41,7 +41,7 @@ class ParseTweet(Bolt):
             if word.startswith("http"): continue
 
             # Strip leading and lagging punctuations
-            aword = word.strip("\"?><,'.:;!-~[]()&%$*/\\")
+            aword = word.strip("\"?><,\'.:;!~[]()&%$*/=+-_^$\\")
 
             # Filter out words of no interests
             if aword in no_count: continue
