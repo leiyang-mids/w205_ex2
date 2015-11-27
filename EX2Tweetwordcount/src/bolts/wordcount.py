@@ -26,5 +26,5 @@ class WordCounter(Bolt):
         self.emit([word, self.counts[word]])
 
         # Log the count every 10 counts - just to see the topology running
-        if self.counts[word]%10 == 0:
+        if self.counts[word]%100 == 0:
             self.log('%s: %d' % (word, self.counts[word]))
