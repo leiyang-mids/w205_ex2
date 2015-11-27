@@ -12,7 +12,7 @@ class WordCounter(Bolt):
         #self.redis = StrictRedis()
         # get postgres connection
         self.conn = psycopg2.connect(database="tcount", user="postgres", password="pass", host="localhost", port="5432")
-        self.cur = conn.cursor()
+        self.cur = self.conn.cursor()
 
     def process(self, tup):
         word = tup.values[0]
