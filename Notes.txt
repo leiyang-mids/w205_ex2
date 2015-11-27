@@ -1,0 +1,4 @@
+Parsing Notes:
+
+1. to lower case for all
+2. get rid of number and words with number (re)

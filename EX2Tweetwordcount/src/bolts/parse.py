@@ -14,8 +14,11 @@ class ParseTweet(Bolt):
     def process(self, tup):
         tweet = tup.values[0]  # extract the tweet
 
-        # Split the tweet into words
-        words = tweet.split()
+        # get rid numbers
+        tweet = re.sub(r'\w*\d\w*', '', tweet).strip()
+
+        # Split the tweet into words and convert all to lower case
+        words = tweet.lower().split()
 
         # Filter out the hash tags, RT, @ and urls
         valid_words = []
