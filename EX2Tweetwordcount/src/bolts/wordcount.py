@@ -20,7 +20,7 @@ class WordCounter(Bolt):
         for rec in records:
             self.counts[rec[0]] = int(rec[1])
         self.conn.commit()
-        self.log('completed syncing with %d words' %cur.rowcount)
+        self.log('completed syncing with %d words' %self.cur.rowcount)
 
     def process(self, tup):
         word = tup.values[0]
