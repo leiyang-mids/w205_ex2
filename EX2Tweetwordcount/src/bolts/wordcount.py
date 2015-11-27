@@ -13,8 +13,11 @@ class WordCounter(Bolt):
         # get postgres connection
         self.conn = psycopg2.connect(database="tcount", user="postgres", password="pass", host="localhost", port="5432")
         self.cur = self.conn.cursor()
-        # let's clear the table first
-        self.cur.execute('DELETE FROM Tweetwordcount')
+        # let's sync our counter with the DB, in case there are any records
+        self.cur.execute('SELECT * FROM Tweetwordcount')
+        records = self.cur.fetchall()
+        for rec in records:
+            self.counts[rec[0]] = int(rec[1])
         self.conn.commit()
 
     def process(self, tup):
