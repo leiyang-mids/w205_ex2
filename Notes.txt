@@ -5,4 +5,4 @@ Parsing Notes:
 3. get rid of words of no interests:
  3a. ignore word of 1 or 2 characters
  3b. a list boring words
- 3c. maybe keeping nouns would be better for the purpose
+ 3c. maybe keeping nouns and adjectives would be better for the purpose

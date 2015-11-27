@@ -16,7 +16,7 @@ class ParseTweet(Bolt):
 
         # words of no interests - will not count
         # we also don't count words with 1 or 2 characters
-        no_count = 'for you the are this have not but that your get from and just they who can what about'.split()
+        no_count = 'for you the are this have not but that your get from and just they who can what about out any when now all was don\'t'.split()
 
         # get rid numbers
         tweet = re.sub(r'\w*\d\w*', '', tweet).strip()
