@@ -8,7 +8,7 @@ if len(arg) != 2:
 
 try:
     k1 = int(arg[0])
-    k2 = int(arg[0])
+    k2 = int(arg[1])
 except ValueError:
     sys.exit('invalid input - only accept integer')
 
@@ -18,7 +18,10 @@ if k1 > k2:
 import psycopg2
 conn = psycopg2.connect(database="tcount", user="postgres", password="pass", host="localhost", port="5432")
 cur = conn.cursor()
-cur.execute('select word, count from tweetwordcount where count >= %s and count <= %s', (k1, k2))
+cur.execute('select word, count from tweetwordcount where count >= %s and count <= %s order by count desc', (k1, k2))
 records = cur.fetchall()
 for word in records:
     print '    %s: %d' %(word[0], word[1])
+
+cur.close()
+conn.close()
