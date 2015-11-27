@@ -24,7 +24,7 @@ class WordCounter(Bolt):
         # you need to create both the database and the table in advance.
         if counts[word] == 1:
             self.cur.execute("INSERT INTO Tweetwordcount (word,count) VALUES (%s, 1)", word)
-        else
+        else:
             self.cur.execute("UPDATE Tweetwordcount SET count=%s WHERE word=%s", (counts[word], word))
         self.conn.commit()
 
