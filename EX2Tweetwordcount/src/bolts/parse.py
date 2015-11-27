@@ -15,7 +15,8 @@ class ParseTweet(Bolt):
         tweet = tup.values[0]  # extract the tweet
 
         # words of no interests - will not count
-        no_count = 'to for i you u the a in are of or on this us have my at'.split()
+        # we also don't count words with 1 or 2 characters
+        no_count = 'for you the are this have'.split()
 
         # get rid numbers
         tweet = re.sub(r'\w*\d\w*', '', tweet).strip()
@@ -40,13 +41,13 @@ class ParseTweet(Bolt):
             if word.startswith("http"): continue
 
             # Strip leading and lagging punctuations
-            aword = word.strip("\"?><,'.:;!-~[]()")
+            aword = word.strip("\"?><,'.:;!-~[]()&%$*")
 
             # Filter out words of no interests
             if aword in no_count: continue
 
             # now check if the word contains only ascii
-            if len(aword) > 0 and ascii_string(word):
+            if len(aword) > 2 and ascii_string(word):
                 valid_words.append([aword])
 
         if not valid_words: return
