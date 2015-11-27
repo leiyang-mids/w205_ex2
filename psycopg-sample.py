@@ -6,11 +6,21 @@
 
 
 import psycopg2
+from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
-conn = psycopg2.connect(database="Tcount", user="postgres", password="pass", host="localhost", port="5432")
+# create database
+conn = psycopg2.connect(database="postgres", user="postgres", password="pass", host="localhost", port="5432")
+conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
+cur = conn.cursor()
+cur.execute("create database tcount")
+cur.close()
+conn.close()
+
+# connect to database and create table & column
+conn = psycopg2.connect(database="tcount", user="postgres", password="pass", host="localhost", port="5432")
 
 #Create a Table
-#The first step is to create a cursor. 
+#The first step is to create a cursor.
 
 cur = conn.cursor()
 cur.execute('''CREATE TABLE Tweetwordcount
@@ -23,15 +33,14 @@ conn.close()
 #Running sample SQL statements
 #Inserting/Selecting/Updating
 
-#Rather than executing a whole query at once, it is better to set up a cursor that encapsulates the query, 
+#Rather than executing a whole query at once, it is better to set up a cursor that encapsulates the query,
 #and then read the query result a few rows at a time. One reason for doing this is
-#to avoid memory overrun when the result contains a large number of rows. 
+#to avoid memory overrun when the result contains a large number of rows.
 
 cur = conn.cursor()
 
 #Insert
-cur.execute("INSERT INTO Tweetwordcount (word,count) \
-      VALUES ('test', 1)");
+cur.execute("INSERT INTO Tweetwordcount (word,count) VALUES ('test', 1)")
 conn.commit()
 
 #Update
