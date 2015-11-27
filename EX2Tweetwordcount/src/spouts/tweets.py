@@ -72,7 +72,7 @@ class Tweets(Spout):
     def next_tuple(self):
         try:
             # skip when queue is empty
-            if sefl.queue().empty(): return
+            if self.queue().empty(): return
             tweet = self.queue().get(timeout = 0.1)
             if tweet:
                 self.queue().task_done()
