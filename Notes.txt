@@ -2,3 +2,4 @@ Parsing Notes:
 
 1. to lower case for all
 2. get rid of number and words with number (re)
+3. get rid of words of no interests (to, for, i, you, u, the, a, in, are, of, or, on, this, us, have, my, at)
