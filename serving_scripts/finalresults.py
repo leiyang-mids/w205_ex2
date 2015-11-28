@@ -17,10 +17,10 @@ conn = psycopg2.connect(database="tcount", user="postgres", password="pass", hos
 cur = conn.cursor()
 
 if len(arg) == 1:
-    cur.execute('select count from tweetwordcount where word = %s', (arg[0],))
-    #print 'run: ' + cur.query 
+    cur.execute('select count from tweetwordcount where word = %s', (arg[0].lower(),))
+    #print 'run: ' + cur.query
     rtn = cur.fetchone()
-    print 'Total number of occurences of "%s": %s' %(arg[0], '0' if not rtn else str(rtn[0]))
+    print 'Total number of occurences of "%s": %s' %(arg[0].lower(), '0' if not rtn else str(rtn[0]))
 
 if len(arg) == 0:
     cur.execute('select * from Tweetwordcount order by word')
