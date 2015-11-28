@@ -2,6 +2,7 @@ import psycopg2
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
 # create tcount database
+print 'creating tcount database in postgres ...'
 conn = psycopg2.connect(database="postgres", user="postgres", password="pass", host="localhost", port="5432")
 conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
 cur = conn.cursor()
@@ -16,6 +17,7 @@ conn.close()
 print 'database tcount is successfully created!'
 
 # connect to tcount database and create table & column
+print 'creating tweetwordcount table in tcount ...'
 conn = psycopg2.connect(database="tcount", user="postgres", password="pass", host="localhost", port="5432")
 cur = conn.cursor()
 cur.execute('''CREATE TABLE Tweetwordcount
@@ -24,4 +26,4 @@ cur.execute('''CREATE TABLE Tweetwordcount
 conn.commit()
 conn.close()
 print 'table tweetwordcount is successfully created!'
-print 'setup completed, you are ready to go, happy streaming :)'
+print 'postgres setup completed, you are good to go, happy streaming :)'
