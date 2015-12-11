@@ -3,5 +3,5 @@
 Instructions:
 
 0. assuming streamparse and tweepy are installed and properly configured.
-1. execute python create_db.py to setup postgres database.
-2. execute sparse run under EX2Tweetwordcount folder.
+1. run "python create_db.py" to setup postgres database.
+2. run "sparse run" under EX2Tweetwordcount folder to start the streaming.
