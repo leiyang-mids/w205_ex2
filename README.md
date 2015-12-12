@@ -2,7 +2,6 @@
 
 ### Lei Yang - 2015/12/12
 
-
 #### Deployment steps:
 0. assume streamparse and tweepy are installed and properly configured.
 1. under **setup**, create Postgres database and table:
