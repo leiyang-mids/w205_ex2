@@ -14,7 +14,7 @@ cur.execute("CREATE DATABASE tcount")
 conn.commit()
 cur.close()
 conn.close()
-print 'database tcount is successfully created!'
+print 'database tcount is successfully created in Postgres!'
 
 # connect to tcount database and create table & column
 print 'creating tweetwordcount table in tcount ...'
@@ -26,4 +26,4 @@ cur.execute('''CREATE TABLE Tweetwordcount
 conn.commit()
 conn.close()
 print 'table tweetwordcount is successfully created!'
-print 'postgres setup completed, you are good to go, happy streaming :)'
+print 'Postgres setup completed, you are good to go, happy streaming :)'
