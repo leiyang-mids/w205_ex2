@@ -28,11 +28,11 @@ postgres setup completed, you are good to go, happy streaming :)
 
 #### Checking results (under **/serving_scripts**):
 - check all words count:
-<pre><code>$ python finalresults.py </code><pre>
+<pre><code>$ python finalresults.py </code></pre>
 - check a specific word:
-<pre><code>$ python finalresults.py weather </code><pre>
+<pre><code>$ python finalresults.py weather </code></pre>
 - check histogram with specified range:
-<pre><code>$ python histogram.py 600 1000 </code><pre>
+<pre><code>$ python histogram.py 600 1000 </code></pre>
 - perform customized query on Postgres:
 <pre><code>
 $ [w205@ip-172-31-6-39 ~]$ psql -U postgres
@@ -66,4 +66,4 @@ tcount-# ;
  back    |   274
  really  |   270
 (20 rows)
-</code><pre>
+</code></pre>
